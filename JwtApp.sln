@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtApp", "JwtApp\JwtApp.csproj", "{03E181E4-F540-410C-8D6E-318D7455C3FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtApp.Auth", "JwtApp.Auth\JwtApp.Auth.csproj", "{C6C3BA45-4FB1-4A48-B87E-C8A1F48AB15B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtApp.Infrastructure", "JwtApp.Infrastructure\JwtApp.Infrastructure.csproj", "{F0704852-2EDF-43E7-A81D-AA4F979C6F5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03E181E4-F540-410C-8D6E-318D7455C3FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03E181E4-F540-410C-8D6E-318D7455C3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03E181E4-F540-410C-8D6E-318D7455C3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03E181E4-F540-410C-8D6E-318D7455C3FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6C3BA45-4FB1-4A48-B87E-C8A1F48AB15B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6C3BA45-4FB1-4A48-B87E-C8A1F48AB15B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6C3BA45-4FB1-4A48-B87E-C8A1F48AB15B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6C3BA45-4FB1-4A48-B87E-C8A1F48AB15B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0704852-2EDF-43E7-A81D-AA4F979C6F5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0704852-2EDF-43E7-A81D-AA4F979C6F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0704852-2EDF-43E7-A81D-AA4F979C6F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0704852-2EDF-43E7-A81D-AA4F979C6F5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
