@@ -1,4 +1,4 @@
-﻿namespace JwtApp.Controllers.Models;
+﻿namespace JwtApp.Infrastructure.Auth.Models;
 
 public class LoginCommand
 {

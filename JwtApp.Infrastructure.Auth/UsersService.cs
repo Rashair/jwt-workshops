@@ -1,8 +1,8 @@
-﻿using JwtApp.Auth.Models;
+﻿using JwtApp.Infrastructure.Auth.Models;
 using JwtApp.Infrastructure.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace JwtApp.Auth;
+namespace JwtApp.Infrastructure.Auth;
 
 public interface IUsersService
 {
@@ -25,6 +25,11 @@ public class UsersService : IUsersService
             UserName = command.Username,
             Age = command.Age,
             Email = command.Email,
-        },command.Password);
+            Claims = command.Claims.Select(c => new IdentityUserClaim<string>()
+            {
+                ClaimType = c.Type,
+                ClaimValue = c.Value,
+            }).ToList()
+        }, command.Password);
     }
 }

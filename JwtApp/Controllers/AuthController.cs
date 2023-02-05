@@ -1,6 +1,5 @@
-﻿using System.Net;
-using JwtApp.Auth;
-using JwtApp.Controllers.Models;
+﻿using JwtApp.Infrastructure.Auth;
+using JwtApp.Infrastructure.Auth.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,13 +9,13 @@ namespace JwtApp.Controllers;
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly IConfiguration _configuration;
     private readonly IAuthService _authService;
+    private readonly IUsersService _usersService;
 
-    public AuthController(IConfiguration config, IAuthService authService)
+    public AuthController(IAuthService authService, IUsersService usersService)
     {
-        _configuration = config;
         _authService = authService;
+        _usersService = usersService;
     }
 
 
@@ -24,13 +23,20 @@ public class AuthController : ControllerBase
     [AllowAnonymous]
     public async Task<ActionResult<string>> Login(LoginCommand command)
     {
-        var user = await _authService.SignIn(command.Username, command.Password);
-        if (user == null)
+        var token = await _authService.Login(command);
+        if (token == null)
         {
             return BadRequest("Invalid credentials");
         }
 
-        var token = await _authService.CreateAccessToken(user);
         return Ok(token);
+    }
+
+    [HttpPost("create-user")]
+    [Authorize(Policies.AdminOnly)]
+    public async Task<ActionResult<string>> CreateUser(CreateUserCommand command)
+    {
+        await _usersService.CreateUser(command);
+        return Ok();
     }
 }

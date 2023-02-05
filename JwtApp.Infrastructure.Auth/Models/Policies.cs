@@ -1,4 +1,4 @@
-﻿namespace JwtApp.Auth.Models;
+﻿namespace JwtApp.Infrastructure.Auth.Models;
 
 public static class Policies
 {
@@ -14,6 +14,7 @@ public static class Roles
 
 public static class Claims
 {
+    public const string Role = "role";
     public const string Employee = "employee";
     public const string Age = "age";
 }

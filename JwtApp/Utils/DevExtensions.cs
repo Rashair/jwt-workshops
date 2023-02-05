@@ -1,4 +1,5 @@
-﻿using JwtApp.Auth;
+﻿using JwtApp.Infrastructure.Auth;
+using JwtApp.Infrastructure.Auth.Models;
 using JwtApp.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +22,12 @@ public static class DevExtensions
             Username = "admin",
             Age = 30,
             Password = "happy-admin-2023",
-            Email = "admin@admin.com"
+            Email = "admin@admin.com",
+            Claims = new()
+            {
+                new(Claims.Role, Roles.Admin),
+                new(Claims.Employee, "")
+            }
         });
     }
 }

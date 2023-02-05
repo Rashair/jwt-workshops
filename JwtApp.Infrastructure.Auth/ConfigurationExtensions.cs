@@ -1,6 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
-using JwtApp.Auth.Models;
+using JwtApp.Infrastructure.Auth.Models;
 using JwtApp.Infrastructure.Models;
 using JwtApp.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -10,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
-namespace JwtApp.Auth;
+namespace JwtApp.Infrastructure.Auth;
 
 public static class ConfigurationExtensions
 {
@@ -27,17 +28,13 @@ public static class ConfigurationExtensions
                 o.Password.RequireDigit = false;
                 o.Password.RequireUppercase = false;
             })
-            // Adds MVC / SignInManager, and razor based ui
-            .AddDefaultUI()
-            // Add EF core store for identity tables
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(o => o.TokenValidationParameters = new()
             {
-                ValidateIssuer = true,
-                ValidateAudience = true,
+                RoleClaimType = Claims.Role,
                 ValidAudience = conf["Jwt:Audience"],
                 ValidIssuer = conf["Jwt:Issuer"],
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(conf["Jwt:Key"]!)),

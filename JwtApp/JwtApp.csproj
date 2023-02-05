@@ -17,11 +17,16 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\JwtApp.Auth\JwtApp.Auth.csproj" />
+      <ProjectReference Include="..\JwtApp.Infrastructure.Auth\JwtApp.Infrastructure.Auth.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers\Models" />
     </ItemGroup>
 
 </Project>

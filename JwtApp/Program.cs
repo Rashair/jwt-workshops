@@ -1,8 +1,9 @@
 using JwtApp;
-using JwtApp.Auth;
+using JwtApp.Infrastructure.Auth;
 using JwtApp.Infrastructure;
 using JwtApp.Utils;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ services.AddWebServices(conf)
 services.AddRazorPages();
 services.AddControllersWithViews();
 
+builder.Host.UseSerilog((opts, logConf) =>
+    logConf.ReadFrom.Configuration(opts.Configuration));
 
 var app = builder.Build();
 
@@ -53,5 +56,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
 
 app.Run();
