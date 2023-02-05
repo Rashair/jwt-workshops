@@ -27,7 +27,8 @@ public static class DevExtensions
             {
                 new(Claims.Role, Roles.Admin),
                 new(Claims.Employee, "")
-            }
+            },
+            Name = "admin"
         });
     }
 }

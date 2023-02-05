@@ -1,9 +1,11 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using JwtApp.Infrastructure.Auth.Behaviours;
 using JwtApp.Infrastructure.Auth.Models;
 using JwtApp.Infrastructure.Models;
 using JwtApp.Infrastructure.Persistence;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -62,6 +64,7 @@ public static class ConfigurationExtensions
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IUsersService, UsersService>();
 
+        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(UserIdBehaviour<,>));
 
         return services;
     }

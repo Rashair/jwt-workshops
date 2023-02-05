@@ -15,10 +15,12 @@ public static class AuthConfiguration
         {
             b.ToAuthTable($"{nameof(ApplicationUser)}s");
             b.HasKey(u => u.Id);
+
             b.HasMany(u => u.Claims)
                 .WithOne()
                 .HasForeignKey(uc => uc.UserId)
-                .IsRequired();
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         builder.Entity<IdentityUserClaim<string>>(b => { b.ToAuthTable("IdUserClaims"); });

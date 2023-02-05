@@ -8,6 +8,8 @@ public static class ConfigurationExtensions
     {
         services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
+        services.AddControllers();
+
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(option =>
         {

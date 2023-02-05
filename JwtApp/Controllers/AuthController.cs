@@ -36,7 +36,12 @@ public class AuthController : ControllerBase
     [Authorize(Policies.AdminOnly)]
     public async Task<ActionResult<string>> CreateUser(CreateUserCommand command)
     {
-        await _usersService.CreateUser(command);
+        var res = await _usersService.CreateUser(command);
+        if (!res.Succeeded)
+        {
+            return BadRequest(new { errors = res.Errors });
+        }
+
         return Ok();
     }
 }

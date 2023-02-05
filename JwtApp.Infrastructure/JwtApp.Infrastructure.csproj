@@ -15,4 +15,8 @@
       <Folder Include="Persistence\Migrations" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\JwtApp.Application\JwtApp.Application.csproj" />
+    </ItemGroup>
+
 </Project>

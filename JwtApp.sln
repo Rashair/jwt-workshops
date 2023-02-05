@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtApp.Infrastructure.Auth"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtApp.Infrastructure", "JwtApp.Infrastructure\JwtApp.Infrastructure.csproj", "{F0704852-2EDF-43E7-A81D-AA4F979C6F5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtApp.Application", "JwtApp.Application\JwtApp.Application.csproj", "{8EB3934D-8030-45EE-85D3-7D0FEA64C357}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtApp.Domain", "JwtApp.Domain\JwtApp.Domain.csproj", "{75415786-E670-4F0B-ABD4-C991F3D73C3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{F0704852-2EDF-43E7-A81D-AA4F979C6F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0704852-2EDF-43E7-A81D-AA4F979C6F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0704852-2EDF-43E7-A81D-AA4F979C6F5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EB3934D-8030-45EE-85D3-7D0FEA64C357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB3934D-8030-45EE-85D3-7D0FEA64C357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB3934D-8030-45EE-85D3-7D0FEA64C357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB3934D-8030-45EE-85D3-7D0FEA64C357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75415786-E670-4F0B-ABD4-C991F3D73C3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75415786-E670-4F0B-ABD4-C991F3D73C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75415786-E670-4F0B-ABD4-C991F3D73C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75415786-E670-4F0B-ABD4-C991F3D73C3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

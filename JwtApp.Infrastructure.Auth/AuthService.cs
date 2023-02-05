@@ -63,7 +63,6 @@ public class AuthService : IAuthService
             [JwtRegisteredClaimNames.Name] = user.UserName,
             [Claims.Age] = user.Age,
             [JwtRegisteredClaimNames.Email] = user.Email,
-            [Claims.Employee] = user.Age,
         };
 
         foreach (var userClaim in user.Claims)

@@ -1,4 +1,5 @@
-﻿using JwtApp.Infrastructure.Auth.Models;
+﻿using Jwt.Domain;
+using JwtApp.Infrastructure.Auth.Models;
 using JwtApp.Infrastructure.Models;
 using Microsoft.AspNetCore.Identity;
 
@@ -6,7 +7,7 @@ namespace JwtApp.Infrastructure.Auth;
 
 public interface IUsersService
 {
-    Task CreateUser(CreateUserCommand command);
+    Task<IdentityResult> CreateUser(CreateUserCommand command);
 }
 
 public class UsersService : IUsersService
@@ -18,13 +19,17 @@ public class UsersService : IUsersService
         _userManager = userManager;
     }
 
-    public async Task CreateUser(CreateUserCommand command)
+    public async Task<IdentityResult> CreateUser(CreateUserCommand command)
     {
-        await _userManager.CreateAsync(new()
+        return await _userManager.CreateAsync(new()
         {
             UserName = command.Username,
             Age = command.Age,
             Email = command.Email,
+            JwtUser = new()
+            {
+                Name = command.Name,
+            },
             Claims = command.Claims.Select(c => new IdentityUserClaim<string>()
             {
                 ClaimType = c.Type,
