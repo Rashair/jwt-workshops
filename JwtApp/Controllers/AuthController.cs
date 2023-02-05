@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JwtApp.Controllers;
 
-[Route("api/token")]
+[Route("api/[controller]")]
 [ApiController]
 public class AuthController : ControllerBase
 {

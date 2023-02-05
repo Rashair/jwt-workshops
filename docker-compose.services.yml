@@ -1,0 +1,20 @@
+version: '3.9'
+
+name: 'jwt-services'
+
+services:
+  jwt-mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name:  jwt-mssql
+    hostname:  jwt-mssql
+    restart: always
+    ports:
+      - 1439:1433
+    volumes:
+       - jwt-sqlvolume:/var/opt/mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=TheJwtApp2@23
+ 
+volumes:
+    jwt-sqlvolume:

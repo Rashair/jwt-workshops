@@ -1,26 +1,33 @@
+using JwtApp;
 using JwtApp.Auth;
-using Microsoft.EntityFrameworkCore;
-using JwtApp.Data;
+using JwtApp.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
-                       throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 var services = builder.Services;
-services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
-services.AddDatabaseDeveloperPageExceptionFilter();
+var conf = builder.Configuration;
 
+if (builder.Environment.IsDevelopment())
+{
+    services.AddDatabaseDeveloperPageExceptionFilter();
+}
+
+services.AddWebServices(conf)
+    .AddInfrastructureServices(conf)
+    .AddAuthServices(conf);
+
+services.AddRazorPages();
 services.AddControllersWithViews();
 
-services.AddAuthServices(builder.Configuration);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseSwagger();
+    app.UseSwaggerUI();
     app.UseMigrationsEndPoint();
 }
 else
