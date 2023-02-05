@@ -1,5 +1,7 @@
-﻿using JwtApp.Auth;
+﻿using System.Net;
+using JwtApp.Auth;
 using JwtApp.Controllers.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JwtApp.Controllers;
@@ -17,8 +19,10 @@ public class AuthController : ControllerBase
         _authService = authService;
     }
 
+
     [HttpPost("login")]
-    public async Task<IActionResult> Login(LoginCommand command)
+    [AllowAnonymous]
+    public async Task<ActionResult<string>> Login(LoginCommand command)
     {
         var user = await _authService.SignIn(command.Username, command.Password);
         if (user == null)

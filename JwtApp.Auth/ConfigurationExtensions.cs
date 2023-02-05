@@ -20,8 +20,6 @@ public static class ConfigurationExtensions
         JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
         JwtSecurityTokenHandler.DefaultOutboundClaimTypeMap.Clear();
 
-
-
         services.AddIdentityCore<ApplicationUser>(o =>
             {
                 o.SignIn.RequireConfirmedAccount = false;
