@@ -44,10 +44,6 @@ public static class ConfigurationExtensions
                 ClockSkew = TimeSpan.FromSeconds(10),
             });
 
-        services.AddHttpContextAccessor();
-        services.AddScoped<SignInManager<ApplicationUser>>();
-        services.AddScoped<IAuthService, AuthService>();
-
         services.AddAuthorization(o =>
         {
             o.FallbackPolicy = new AuthorizationPolicyBuilder()
@@ -63,6 +59,12 @@ public static class ConfigurationExtensions
                                      && ageVal >= 18
                 )));
         });
+
+        services.AddHttpContextAccessor();
+        services.AddScoped<SignInManager<ApplicationUser>>();
+        services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<IUsersService, UsersService>();
+
 
         return services;
     }

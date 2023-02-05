@@ -1,6 +1,7 @@
 using JwtApp;
 using JwtApp.Auth;
 using JwtApp.Infrastructure;
+using JwtApp.Utils;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +32,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.UseMigrationsEndPoint();
     app.UseDeveloperExceptionPage();
+    await app.UseDevExtensions();
 }
 else
 {
@@ -51,6 +53,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
-
 
 app.Run();

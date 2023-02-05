@@ -16,8 +16,4 @@
       <ProjectReference Include="..\JwtApp.Infrastructure\JwtApp.Infrastructure.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Models" />
-    </ItemGroup>
-
 </Project>
