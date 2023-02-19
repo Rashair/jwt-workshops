@@ -1,0 +1,349 @@
+{
+	"info": {
+		"_postman_id": "6cc2a407-64cf-4abc-b463-6d8c375d7a5b",
+		"name": "Jwt collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"happy-admin-2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/auth/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"steven\",\r\n    \"password\": \"lovely-steven-123\",\r\n    \"name\": \"steven\",\r\n    \"age\": 40,\r\n    \"email\": \"steven@steven.com\",\r\n    \"claims\": [\r\n        {\r\n            \"type\": \"employee\",\r\n            \"value\": \"\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/auth/create-user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"create-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"katherine\",\r\n    \"password\": \"stubborn-katherine-123\",\r\n    \"name\": \"katherine\",\r\n    \"age\": 24,\r\n    \"email\": \"katherine@katherine.com\",\r\n    \"claims\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/auth/create-user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"create-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create young user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"tress\",\r\n    \"password\": \"young-tress-1234\",\r\n    \"name\": \"tress\",\r\n    \"age\": 16,\r\n    \"email\": \"tress@tress.com\",\r\n    \"claims\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/auth/create-user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"create-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get WeatherForecast",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"tress\",\r\n    \"password\": \"young-tress-1234\",\r\n    \"age\": 16,\r\n    \"email\": \"tress@tress.com\",\r\n    \"claims\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/weatherforecast",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"weatherforecast"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"tress\",\r\n    \"password\": \"young-tress-1234\",\r\n    \"age\": 16,\r\n    \"email\": \"tress@tress.com\",\r\n    \"claims\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/users/data",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get users count",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"tress\",\r\n    \"password\": \"young-tress-1234\",\r\n    \"age\": 16,\r\n    \"email\": \"tress@tress.com\",\r\n    \"claims\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/users/count",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get cigarettes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"tress\",\r\n    \"password\": \"young-tress-1234\",\r\n    \"age\": 16,\r\n    \"email\": \"tress@tress.com\",\r\n    \"claims\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/sensitivecontent/cigarettes",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"sensitivecontent",
+						"cigarettes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://localhost:7244",
+			"type": "default"
+		},
+		{
+			"key": "jwt",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjYjZhODUxZi02NGU4LTQ2MjEtOGI4MS04OWQxYWQwM2MzNGUiLCJpYXQiOjE2NzU2MDQyODUsIm5hbWVpZCI6IjY2MTA0ZjdiLTE4OTAtNDAwYi05YWU5LTJmMjc1NGRjMWU1NiIsIm5hbWUiOiJhZG1pbiIsImFnZSI6MzAsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiZW1wbG95ZWUiOiIiLCJuYmYiOjE2NzU2MDQyODUsImV4cCI6MTY3NTYwNTQ4NSwiaXNzIjoidGhlLWp3dGFwcC5jb20iLCJhdWQiOiJ3ZWIifQ.95DLKpWDqTXZO2674N1iQpqcaDNdxzZryof8i9EdMsg",
+			"type": "default"
+		}
+	]
+}
